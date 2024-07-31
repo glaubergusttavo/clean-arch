@@ -1,20 +1,20 @@
 import { ProductRepository } from "../interfaces/product-repository";
 
 
-export class ReturnProductUseCase{
+export class ReturnProductUseCase {
     private productRepository: ProductRepository
 
-    constructor(productRepository: ProductRepository){
+    constructor(productRepository: ProductRepository) {
         this.productRepository = productRepository;
     }
 
-    async execute(){
+    async execute() {
 
         const allProducts = await this.productRepository.getAll();
 
-        if(allProducts.length <= 0){
-            throw new Error("Product not found!")
+        if (allProducts.length <= 0) {
+            throw new Error("Products not found!")
         }
-        return {products: allProducts};
+        return { products: allProducts };
     }
 }

@@ -10,21 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id    String @id @default(uuid())
-  name  String
-  email String  @unique
-  password  String
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
 
-   @@map("users")
+  @@map("users")
 }
 
-model Product{
+model Product {
   id    String @id @default(uuid())
   type  String
-  mark String 
-  price  Float
+  mark  String
+  price Float
 
-   @@map("products")
+  @@map("products")
 }
-

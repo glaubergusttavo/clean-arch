@@ -18,7 +18,7 @@ export class PrismaUsersRepository implements UserRepository{
         
         return dbUsers.map(user => {
             return new User({
-                name: user.email,
+                name: user.name,
                 email: user.email,
                 password: user.password
             })

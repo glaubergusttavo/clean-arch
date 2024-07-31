@@ -8,15 +8,15 @@ export class ReturnUserUseCase {
     constructor(userRepository: UserRepository) {
         this.userRepository = userRepository;
     }
-    
-    async execute(){
+
+    async execute() {
 
         const allUsers = await this.userRepository.getAll();
 
-        if(allUsers.length <= 0){
-            throw new Error("User not found!")
+        if (allUsers.length <= 0) {
+            throw new Error("Users not found!")
         }
-        return {users: allUsers};
+        return { users: allUsers };
     }
 
 }

@@ -13,19 +13,19 @@ export class CreateUserUseCase {
     constructor(userRepository: UserRepository) {
         this.userRepository = userRepository;
     }
-    
-    async execute(props: CreateUserProps){
+
+    async execute(props: CreateUserProps) {
 
         const allUsers = await this.userRepository.getAll();
 
         const emailAlreadyExists = allUsers.find(user => user.getEmail === props.email)
-        if(emailAlreadyExists){
-            throw new Error("User aready exists!")
+        if (emailAlreadyExists) {
+            throw new Error("User already exists!")
         }
         const user = new User({
-          name: props.name,
-          email: props.email,
-          password: props.password
+            name: props.name,
+            email: props.email,
+            password: props.password
         })
 
         await this.userRepository.save(user);

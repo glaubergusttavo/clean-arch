@@ -1,27 +1,27 @@
-interface ProductProps{
-    type: string
-    mark: string
-    price: number
+interface ProductProps {
+  type: string
+  mark: string
+  price: number
 }
 
-export class Product{
-    private type: string
-    private mark: string
-    private price: number
+export class Product {
+  private type: string
+  private mark: string
+  private price: number
 
-  get getType(){
+  get getType() {
     return this.type;
   }
 
-  get getMark(){
+  get getMark() {
     return this.mark;
   }
 
-  get getPrice(){
+  get getPrice() {
     return this.price;
   }
 
-  constructor(props: ProductProps){
+  constructor(props: ProductProps) {
     this.type = props.type
     this.mark = props.mark
     this.price = props.price

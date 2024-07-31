@@ -19,7 +19,7 @@ export class CreateProductUseCase {
 
         const productAlreadyExists = allProducts.find(product => product.getType === props.type && product.getMark === props.mark && product.getPrice === props.price)
         if (productAlreadyExists) {
-            throw new Error("Product aready exists!")
+            throw new Error("Product already exists!")
         }
         const product = new Product({
             type: props.type,
