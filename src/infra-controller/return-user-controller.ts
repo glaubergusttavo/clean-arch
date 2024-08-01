@@ -7,10 +7,10 @@ export class ReturnUserController {
         this.returnUserUseCase = returnUserUseCase;
     }
 
-    async execute() {
+    async execute(userEmail?: string) {
 
         try {
-            const returnFunction = await this.returnUserUseCase.execute()
+            const returnFunction = await this.returnUserUseCase.execute(userEmail)
             return { statusCode: 200, body: returnFunction }
 
         } catch (err) {

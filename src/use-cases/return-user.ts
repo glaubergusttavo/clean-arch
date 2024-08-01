@@ -1,4 +1,3 @@
-import { User } from "../entities/users";
 import { UserRepository } from "../interfaces/user-repository";
 
 
@@ -9,9 +8,9 @@ export class ReturnUserUseCase {
         this.userRepository = userRepository;
     }
 
-    async execute() {
+    async execute(userEmail?: string) {
 
-        const allUsers = await this.userRepository.getAll();
+        const allUsers = await this.userRepository.getAll(userEmail);
 
         if (allUsers.length <= 0) {
             throw new Error("Users not found!")

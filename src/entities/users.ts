@@ -26,4 +26,13 @@ export class User {
         this.email = props.email
         this.password = props.password
     }
+
+    public updateName(name: string){
+        this.name = name;
+    }
+
+    public updateEmail(email: string){
+        this.email = email;
+    }
+
 }
