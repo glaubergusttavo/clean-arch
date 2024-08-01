@@ -8,9 +8,9 @@ export class ReturnProductController {
         this.returnProductUseCase = returnProductUseCase
     }
 
-    async execute() {
+    async execute(productType?: string) {
         try {
-            const returnFunction = await this.returnProductUseCase.execute();
+            const returnFunction = await this.returnProductUseCase.execute(productType);
             return { statusCode: 200, body: returnFunction }
 
         } catch (err) {

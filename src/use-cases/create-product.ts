@@ -2,6 +2,7 @@ import { Product } from "../entities/products";
 import { ProductRepository } from "../interfaces/product-repository";
 
 export interface CreateProductProps {
+    id: string
     type: string
     mark: string
     price: number
@@ -22,6 +23,7 @@ export class CreateProductUseCase {
             throw new Error("Product already exists!")
         }
         const product = new Product({
+            id: props.id,
             type: props.type,
             mark: props.mark,
             price: props.price

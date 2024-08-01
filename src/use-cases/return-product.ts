@@ -8,9 +8,9 @@ export class ReturnProductUseCase {
         this.productRepository = productRepository;
     }
 
-    async execute() {
+    async execute(productType? : string) {
 
-        const allProducts = await this.productRepository.getAll();
+        const allProducts = await this.productRepository.getAll(productType);
 
         if (allProducts.length <= 0) {
             throw new Error("Products not found!")
